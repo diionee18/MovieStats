@@ -2,7 +2,10 @@ import documentariesData from '../data/documentaries.json';
 import featureFilmsData from '../data/feature-films.json';
 import specialsData from '../data/specials.json';
 import React, { useEffect, useState } from 'react';
-import {Douch}
+import { Doughnut } from 'react-chartjs-2';
+import generateRandomHexColors from "../data/colorGen.js"
+import { Chart as ChartJS, ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement } from 'chart.js';
+ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement);
 
 const LanguageChart = () => {
     const [movieData, setMovieData] = useState([])
@@ -26,18 +29,15 @@ const LanguageChart = () => {
             setMovieData({labels, data})
     }, [])
 
+    const backgroundColor = generateRandomHexColors (movieData.labels.length)
+
     const chartData = {
         labels: movieData.labels,
         datasets: [
             {
                 data: movieData.data,
-                backgroundColor: [
-                    '#FF5733',
-                    '#FFD700',
-                    '#36A2EB',
-                    '#FF6384',
-                    '#4BC0C0',
-                  ],
+                backgroundColor: backgroundColor 
+                  
             },
         ],
     };
