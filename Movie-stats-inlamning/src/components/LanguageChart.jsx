@@ -8,7 +8,8 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend, CategoryScale, LinearSca
 ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement);
 
 const LanguageChart = () => {
-    const [movieData, setMovieData] = useState([])
+    const [movieData, setMovieData] = useState({labels: [], data: [],})
+    const [chartSize, setChartSize] = useState(400);
 
     useEffect(() => {
         const combinedAllMovies = [...documentariesData ,
@@ -44,7 +45,11 @@ const LanguageChart = () => {
     return(
         <div>
             <h2>Antal filmer per språk</h2>
-            <Doughnut data={chartData}/>
+            <div style={{ width: chartSize, height: chartSize }}>
+                <Doughnut data={chartData} />
+            </div>
+            <button onClick={() => setChartSize(300)}>Ändra storlek till 300x300</button>
+            <button onClick={() => setChartSize(500)}>Ändra storlek till 500x500</button>
         </div>
     )
 
