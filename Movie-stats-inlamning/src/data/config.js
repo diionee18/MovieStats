@@ -3,6 +3,9 @@ import documentariesData from './documentaries.json';
 import featureFilmsData from './feature-films.json';
 import specialsData from './specials.json';
 import generateRandomHexColors from "./colorGen.js"
+import { useRecoilState } from 'recoil';
+import { currentChartSize } from './atom';
+
 
 export function getLanguageconfig() {
     const [movieData, setMovieData] = useState({labels: [], data: [],})
@@ -28,7 +31,6 @@ export function getLanguageconfig() {
             setBackgroundColor(NewBackgroundColor)
     }, [])
     
-    
     return{
         labels: movieData.labels,
         datasets: [
@@ -41,3 +43,29 @@ export function getLanguageconfig() {
     };
 
 }
+
+export function languageOptions () {
+    const [chartSize] = useRecoilState(currentChartSize);
+    return {
+        respnsive: true,
+        plugins: {
+            legend:{
+                displayed: true,
+                position: chartSize === "large" ? 'left' : 'bottom' ,
+                labels: {
+                    padding:10,
+                    boxWidth:15,
+                    boxHeight:15,
+                    font:{
+                        size: 18,
+                        weight: 'bold',
+                    }
+                },
+                rtl:true,
+            }
+        },
+        hoverOffset:15,
+    };
+
+}
+

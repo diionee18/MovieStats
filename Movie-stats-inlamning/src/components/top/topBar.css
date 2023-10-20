@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.topBar-container{
+    background-color: rgb(37, 111, 120);
+    padding: 20px;
+    margin-bottom: 20px;
+    color: white;
+    font-weight: bold;
+
+}
+.moviz-span{
+    text-decoration-line: underline;
+    text-decoration-color: red ;
+}

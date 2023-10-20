@@ -1,8 +1,8 @@
 import {atom, selector,} from 'recoil';
 
-const chartSize = atom({
+const currentChartSize = atom({
     key: 'chartSize',
     default:"small",
 })
 
-export {chartSize} 
+export {currentChartSize} 
