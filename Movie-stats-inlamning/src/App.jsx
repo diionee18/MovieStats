@@ -1,12 +1,10 @@
-import { useState } from 'react'
-import './App.css'
-import LanguageChart from './components/LanguageChart'
+import Home from './page/Home'
 
 function App() {
 
   return (
     <>
-    <LanguageChart/>
+    <Home/>
     </>
   )
 }
