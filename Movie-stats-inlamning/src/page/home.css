@@ -1,6 +1,5 @@
 .home-container{
     display: flex;
-    gap: 2em;
     justify-content: center;
     flex-direction: column;
 

@@ -1,0 +1,53 @@
+.movie-container{
+    display: flex;
+    justify-content: center;
+}
+
+.movie-ul{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 2em;
+    overflow-y: scroll;
+    height: 20vh;
+    align-content: center;
+    border: 2px solid grey;
+    border-radius: 10px;
+    box-shadow: 9px 12px 50px 25px rgb(37, 111, 120) inset;
+    -webkit-box-shadow: 9px 12px 50px 25px rgb(37, 111, 120) inset;
+    -moz-box-shadow: 9px 12px 50px 25px rgb(37, 111, 120) inset;
+    transition: all 1s linear;
+}
+
+.movie-ul:hover{
+    height: 70vh;
+    box-shadow: 9px 12px 50px -58px rgb(37, 111, 120) inset;
+    -webkit-box-shadow: 9px 12px 50px -58px rgb(37, 111, 120) inset;
+    -moz-box-shadow: 9px 12px 50px -58px rgb(37, 111, 120) inset;
+}
+
+
+
+.movie-ul li{
+    list-style: none;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: .5em;
+    font-size: 20px;
+    transition: transform 0.5s ease-in-out;
+}
+.movie-ul li span{
+    font-weight: bold;
+    color: black;
+}
+
+.movie-ul li:hover{
+    background-color: rgb(37, 111, 120);    
+    transition: all .5s ease-in-out;
+    color: white;
+    transform: translateX(20px);
+}
+
+.movie-ul li:not(:hover) {
+    transform: translateX(0);
+}

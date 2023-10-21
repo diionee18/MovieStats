@@ -1,0 +1,27 @@
+.input-continer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 1em;
+}
+
+
+.input-continer input{
+    padding: .5em;
+    border-radius: 5px;
+    border: .5px solid transparent;
+    width: 130px;
+    transition: all 2s ease-in-out;
+    background-color: antiquewhite;
+}
+
+.input-continer input:focus{
+    width: 200px;
+    transition: all 2s ease-in-out;
+
+}
+
+.test{
+    background-color: red;
+}
