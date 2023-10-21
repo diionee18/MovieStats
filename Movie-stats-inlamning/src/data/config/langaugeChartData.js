@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import documentariesData from "./documentaries.json";
-import featureFilmsData from "./feature-films.json";
-import specialsData from "./specials.json";
+import documentariesData from "../documentaries.json";
+import featureFilmsData from "../feature-films.json";
+import specialsData from "../specials.json";
 import generateRandomHexColors from "./colorGen.js";
 import { useRecoilState } from "recoil";
 import { currentChartSize } from "./atom";
@@ -53,11 +53,14 @@ export function languageOptions() {
                 },
                 position: "top"
             },
+            layout:{
+                autoPadding: true,
+            },
             legend: {
                 displayed: true,
                 position: chartSize === "large" ? "left" : "bottom",
                 labels: {
-                    padding: 10,
+                    padding: 5,
                     boxWidth: 15,
                     boxHeight: 15,
                     font: {

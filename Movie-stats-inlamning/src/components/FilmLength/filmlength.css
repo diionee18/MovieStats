@@ -1,0 +1,12 @@
+.line-container{
+    display: flex;
+    justify-content: center;
+    height: 100vh;   
+}
+
+.line-wrapper{
+    width: 90%;
+    border: 2px solid rgb(210, 181, 18);
+    margin: 1em;
+
+}

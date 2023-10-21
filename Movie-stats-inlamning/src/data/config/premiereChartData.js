@@ -1,6 +1,6 @@
-import documentariesData from "./documentaries.json";
-import featureFilmsData from "./feature-films.json";
-import specialsData from "./specials.json";
+import documentariesData from "../documentaries.json";
+import featureFilmsData from "../feature-films.json";
+import specialsData from "../specials.json";
 import generateRandomHexColors from "./colorGen.js";
 import React, { useState, useEffect } from "react";
 

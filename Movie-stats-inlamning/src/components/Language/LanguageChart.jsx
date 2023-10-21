@@ -3,9 +3,9 @@ import { Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement } from 'chart.js';
 ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement);
 import "./languageChart.css"
-import {getLanguageconfig, languageOptions } from "../../data/langaugeChartData"
+import {getLanguageconfig, languageOptions } from "../../data/config/langaugeChartData"
 import { useRecoilState } from 'recoil';
-import { currentChartSize } from '../../data/atom';
+import { currentChartSize } from '../../data/config/atom';
 
 const LanguageChart = () => {
     const configLang = getLanguageconfig()
@@ -24,14 +24,14 @@ const LanguageChart = () => {
     }
 
     return(
-        <div className='circle-container'>
+        <section className='circle-container'>
             
             <button className='change-size-btn' onClick={changeSize}>Ändra storlek</button>
             <div className={chartSize}>
                 <Doughnut data={configLang} options={optionsLang}  />
             </div>
 
-        </div>
+        </section>
     )
 
 }

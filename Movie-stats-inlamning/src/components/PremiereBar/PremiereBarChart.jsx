@@ -2,7 +2,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend, CategoryScale, LinearSca
 import { Bar } from 'react-chartjs-2';
 ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement, Title);
 import "./premiereBarChart.css"
-import { premiereChartConfig, premiereChartOptions } from '../../data/premiereChartData';
+import { premiereChartConfig, premiereChartOptions } from '../../data/config/premiereChartData';
 
 
 const PrimiereChart = () =>{
