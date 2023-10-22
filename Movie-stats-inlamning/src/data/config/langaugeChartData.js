@@ -51,7 +51,8 @@ export function languageOptions() {
                 font:{
                     size: 25
                 },
-                position: "top"
+                position: "top",
+                color:"black",
             },
             layout:{
                 autoPadding: true,
@@ -65,8 +66,9 @@ export function languageOptions() {
                     boxHeight: 15,
                     font: {
                         size: 18,
-                        weight: "bold",
+                        weight: "bold"
                     },
+                    color:"black",
                 },
                 rtl: true,
             },

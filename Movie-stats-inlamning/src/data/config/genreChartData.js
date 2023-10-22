@@ -63,6 +63,7 @@ export function genreOptions() {
                 font:{
                     size: 25
                 },
+                color: "white",
                 position: "top"
             },
             layout:{
@@ -77,8 +78,8 @@ export function genreOptions() {
                     boxHeight: 15,
                     font: {
                         size: 18,
-                        weight: "bold",
                     },
+                    color:"white"
                 },
                 rtl: true,
             },

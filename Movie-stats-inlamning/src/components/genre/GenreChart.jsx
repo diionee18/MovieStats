@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Doughnut } from "react-chartjs-2";
 import {
     Chart as ChartJS,
@@ -14,11 +14,23 @@ import "./genreChart.css";
 import { useRecoilState } from "recoil";
 import { currentChartSize } from "../../data/config/atom";
 import { genreOptions, getGenreconfig } from "../../data/config/genreChartData";
+import { motion, useInView, useAnimation } from "framer-motion";
 
 const GenreChart = () => {
     const configGenre = getGenreconfig();
     const optionsGenre = genreOptions();
     const [chartSize, setChartSize] = useRecoilState(currentChartSize);
+    const ref = useRef(null)
+    const isInView = useInView(ref, {once: true})
+
+    const mainControls = useAnimation()
+
+    useEffect(() => {
+        if(isInView){
+            mainControls.start("visible")
+        }
+    }, [isInView])
+
 
     const changeSize = (event) => {
         event.preventDefault();
@@ -30,16 +42,22 @@ const GenreChart = () => {
     };
 
     return (
-        <section className="genre-circle-container">
-            <div className="genre-circle">
-                <button className="change-size-btn" onClick={changeSize}>
-                    Ändra storlek
-                </button>
-                <div className={chartSize}>
+        <section ref={ref} className="genre-circle-container">
+        <motion.div className="genre-circle"
+            variants={{
+                hidden: { opacity: 0, x: 255},
+                visible: { opacity: 1, x: 0},
+            }}
+            initial="hidden"
+            animate={mainControls}
+            transition={{duration: 1, delay: .5}}
+        >
+
+                <div className="doughnut-genre">
                     <Doughnut data={configGenre} options={optionsGenre} />
                 </div>
-            </div>
-        </section>
+        </motion.div>
+            </section>
     );
 };
 

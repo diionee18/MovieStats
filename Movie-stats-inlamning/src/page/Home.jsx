@@ -8,7 +8,7 @@ import SearchMovie from "../components/search/searchMovie";
 import { useRecoilState } from "recoil";
 import { isMovieHit } from "../data/config/atom";
 import FoundMovies from "../components/search/FoundMovies";
-import { motion, useInView, useAnimation } from "framer-motion";
+
 
 export default function Home() {
     const [isThereMovie, setIsMovie] = useRecoilState(isMovieHit);

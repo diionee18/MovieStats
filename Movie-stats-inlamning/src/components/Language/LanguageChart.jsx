@@ -22,10 +22,12 @@ const LanguageChart = () => {
     const [chartSize, setChartSize] = useRecoilState(currentChartSize);
     const ref = useRef(null)
     const isInView = useInView(ref, {once: true})
+
     const mainControls = useAnimation()
 
     useEffect(() => {
-        if(isInView) {
+        if(isInView){
+            mainControls.start("visible")
         }
     }, [isInView])
 

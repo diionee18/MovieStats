@@ -7,7 +7,7 @@
     gap: 1em;
     height: 100vh;
     position: relative;
-    background-color: wheat;
+    background-color: antiquewhite;
     padding-top: 1em;
     border: 2px solid silver;
 }
@@ -18,46 +18,16 @@
     flex-direction: column;
     align-items: center;
     gap: 1em;
-    width: 100%;
-    height: 100vh;
     padding: 2em;
 }
 
-.small{
-    display: flex;
-    justify-content: center;
-    width: 40%;
-    min-height: 60vh;
-    transition: all 2s ease-in-out;
-    border: 2px solid silver;
-    background-color: rgba(255, 255, 255, 0.479);
-    border-radius: 20px;
-}
-
-.large{
-    background-color: rgba(255, 255, 255, 0.479);
+.doughnut-genre{
+    background-color: rgb(37, 111, 120);
     border-radius: 20px;
     border: 2px solid silver;
     display: flex;
     justify-content: center;
-    width: 60%;
-    min-height:90vh;
+    width: 600px;
+    min-height:55vh ;
     transition: all 2s ease-in;
-
-}
-.small label{
-    font-size: 55px;
-}
-
-.change-size-btn{
-    border: none;
-    padding: .5em;
-    background-color: green;
-    color: white;
-    font-size: 18px;
-    border-radius: 10px;
-    font-weight: bold;
-    font-family: sans-serif;
-    transition: all 1s ease-in-out;
-
 }

@@ -1,9 +1,6 @@
-import React, { useState } from "react";
-import documentariesData from "../../data/documentaries.json";
-import featureFilmsData from "../../data/feature-films.json";
-import specialsData from "../../data/specials.json";
+import React from "react";
 import { useRecoilState } from "recoil";
-import { isMovieHit, movieListFound } from "../../data/config/atom";
+import { movieListFound } from "../../data/config/atom";
 import "./foundMovies.css"
 
 export default function FoundMovies() {
