@@ -33,25 +33,51 @@ export function filmLengthChart() {
 
   
     return {
-            labels:filmLengthData.map((_, index) => index + 1) ,
-            datasets: [
-                {
-                    data: filmLengthData,
-                    backgroundColor: backgroundColor,
-                    borderColor: 'rgba(75, 192, 192, 1)', 
-                    borderWidth: 2, 
-                },
-            ],
-
-  }
+        data: {
+          labels: filmLengthData.map((_, index) => index + 1),
+          datasets: [
+            {
+              data: filmLengthData,
+              backgroundColor: backgroundColor,
+              borderColor: 'rgba(75, 192, 192, 1)',
+              borderWidth: 2,
+            },
+          ],
+        }
+}
 }
 
 
 
 
 export function filmLengthChartOptions() {
+    const chartData = filmLengthChart()
     return {
+        data: chartData.data,
         plugins: {
+            transitions: {
+                show:{
+                    animations:{
+                        x: {
+                            from: 0,
+                        },
+                        y: {
+                            from: 0,
+                        }
+                    }
+                },
+                hide:{
+                    
+                    animations:{
+                        x: {
+                            from: 0,
+                        },
+                        y: {
+                            from: 0,
+                        }
+                    }
+                }
+            },
             title: {
                 display: true,
                 text: 'Filmernas längd (i minuter)',

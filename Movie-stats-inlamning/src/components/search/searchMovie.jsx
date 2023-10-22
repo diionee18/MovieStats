@@ -35,7 +35,6 @@ export default function SearchMovie() {
     return (
         <div className="input-continer">
             <input placeholder="Skriv in en film title här" type="text" onChange={findMovie} />
-            {searchFound ? <p>Inga träffar hittades</p> : null}
         </div>
     );
 }

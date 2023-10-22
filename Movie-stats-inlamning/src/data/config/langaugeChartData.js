@@ -58,7 +58,7 @@ export function languageOptions() {
             },
             legend: {
                 displayed: true,
-                position: chartSize === "large" ? "left" : "bottom",
+                position: "bottom",
                 labels: {
                     padding: 5,
                     boxWidth: 15,
