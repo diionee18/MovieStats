@@ -13,6 +13,7 @@
     align-self: self-start;
     gap: 1em;
     width: 100%;
+    padding: 2em;
 }
 .small{
     display: flex;
@@ -45,12 +46,22 @@
 .change-size-btn{
     border: none;
     padding: .5em;
-    background-color: green;
-    color: white;
+    background-color: antiquewhite;
+    color: black;
     font-size: 18px;
     border-radius: 10px;
     font-weight: bold;
     font-family: sans-serif;
-    transition: all 1s ease-in-out;
+    transition: all .5s ease-in-out ;
+    margin-bottom: .5em;    
+}
 
+.change-size-btn:hover{
+    background-color: rgb(37, 111, 120);
+    color: white;
+    transform: scale(1.2);
+    cursor: pointer;
+    box-shadow: -5px 12px 5px 2px rgba(0,0,0,0.75);
+-webkit-box-shadow: -5px 12px 5px 2px rgba(0,0,0,0.75);
+-moz-box-shadow: -5px 12px 5px 2px rgba(0,0,0,0.75);
 }

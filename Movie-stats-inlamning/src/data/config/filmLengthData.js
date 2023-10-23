@@ -15,8 +15,16 @@ export function filmLengthChart() {
         const filmLengthsInMinutes = combinedAllMovies.map((movie) => {
             const runtime = movie.Runtime;
             // Extrahera timmar och minuter från längden (t.ex., "2 h 10 min")
-            const [hours, minutes] = runtime.match(/\d+/g);
-            return Number(hours) * 60 + Number(minutes);
+            // const matches = runtime.match(/\d+/g);
+            // let result 
+            // if(matches.length === 1  ) result= Number(matches[0])
+            // else result = Number(matches[0]) * 60 + Number(matches[1]);
+            //  if (result === 2){
+            //     console.log("Resultat:",result, movie, matches);
+            //  }
+            // return result
+
+            return calculateLength(runtime)
         });
     
         // Sortera längderna stigande
@@ -24,29 +32,47 @@ export function filmLengthChart() {
 
         const newBackgroundColor = generateRandomHexColors(sortedFilmLengthData.length);
     
-        const displayedData = sortedFilmLengthData.slice(0, 170);
-        setFilmLengthData(displayedData);
+        // const displayedData = sortedFilmLengthData.slice(0, 170);
+        setFilmLengthData(sortedFilmLengthData);
         setBackgroundColor(newBackgroundColor);
     }, []);
-  
-  
 
-  
+    
+    
+    
     return {
         data: {
-          labels: filmLengthData.map((_, index) => index + 1),
-          datasets: [
-            {
+            labels: filmLengthData.map((_, ) => "" ),
+            datasets: [
+                {
               data: filmLengthData,
               backgroundColor: backgroundColor,
               borderColor: 'rgba(75, 192, 192, 1)',
               borderWidth: 2,
+              label: "Film Length"
             },
-          ],
-        }
-}
+        ],
+    }
 }
 
+}
+
+const calculateLength = (runtime) =>{
+    const splitArry = runtime.split(" ")
+    let hour = 0
+    let min = 0
+    if(splitArry[1] === "h"){
+        hour = Number(splitArry[0])
+    } 
+    else{
+        min = Number(splitArry[0])
+    }
+    if(splitArry.length === 4){
+        min = Number(splitArry[2])
+    }
+
+    return hour * 60 + min
+}
 
 
 
@@ -59,10 +85,12 @@ export function filmLengthChartOptions() {
                 show:{
                     animations:{
                         x: {
-                            from: 0,
+                            from: 10,
+                            to: 0
                         },
                         y: {
-                            from: 0,
+                            from: 10,
+                            to: 0
                         }
                     }
                 },

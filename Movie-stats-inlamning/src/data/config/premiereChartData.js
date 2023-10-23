@@ -4,54 +4,85 @@ import specialsData from "../specials.json";
 import generateRandomHexColors from "./colorGen.js";
 import React, { useState, useEffect } from "react";
 
-
 export function premiereChartConfig() {
-    const [movieData, setMovieData] = useState({ labels: [], data: [] });
+    const [data, setData] = useState({ labels: [], datasets: [] });
     const [backgroundColor, setBackgroundColor] = useState([]);
-
+  
     useEffect(() => {
-        const months = Array.from({length: 12}, (_, i) => i + 1 )
+      const months = Array.from({ length: 12 }, (_, i) => i + 1);
+  
+      const documentariesFilms = [...documentariesData];
+      const featureFilms = [...featureFilmsData];
+      const specialsFilms = [...specialsData];
+  
+      const datasets = [
+        {
+          label: 'Documentaries',
+          data: [],
+          backgroundColor: [],
+        },
+        {
+          label: 'Feature Films',
+          data: [],
+          backgroundColor: [],
+        },
+        {
+          label: 'Specials',
+          data: [],
+          backgroundColor: [],
+        },
+      ];
+  
+      months.forEach((month) => {
+        datasets[0].data.push(
+          documentariesFilms.filter((movie) => {
+            const premiereDate = new Date(movie.Premiere);
+            return premiereDate.getMonth() + 1 === month;
+          }).length
+        );
+  
+        datasets[1].data.push(
+          featureFilms.filter((movie) => {
+            const premiereDate = new Date(movie.Premiere);
+            return premiereDate.getMonth() + 1 === month;
+          }).length
+        );
+  
+        datasets[2].data.push(
+          specialsFilms.filter((movie) => {
+            const premiereDate = new Date(movie.Premiere);
+            return premiereDate.getMonth() + 1 === month;
+          }).length
+        );
+      });
+  
 
-        const combinedAllMovies = [...documentariesData, ...featureFilmsData, ...specialsData];
-        const premiereData = months.map((month) =>{
-            const premiereCount = combinedAllMovies.filter((movie) =>{
-                const premiereDate = new Date(movie.Premiere)
-                return premiereDate.getMonth() + 1 === month
-            }).length
-            return {
-                month: month,
-                premiereCount: premiereCount,
-            };
-        })
+    //   datasets.forEach((dataset) => {
+    //     dataset.data = dataset.data.sort((a, b) => b - a);
+    //   });
 
-        const monthNames = [
-            "Januari", "Februari", "Mars", "April", "Maj", "Juni",
-            "Juli", "Augusti", "September", "Oktober", "November", "December"
-        ];
-
-        const sortedPremiereData = premiereData.slice().sort((a, b) => {
-            return monthNames.indexOf(a.month) - monthNames.indexOf(b.month);
-        });
-        
-
-        const labels = sortedPremiereData.map((data) => monthNames[data.month - 1])
-        const data = sortedPremiereData.map((data) => data.premiereCount)
-        setMovieData({labels, data})
-
-        const NewBackgroundColor = generateRandomHexColors(labels.length);
-        setBackgroundColor(NewBackgroundColor);
+      const monthNames = [
+        'Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni',
+        'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'
+      ];
+  
+      datasets.forEach((dataset) => {
+        dataset.backgroundColor = generateRandomHexColors(months.length);
+      });
+  
+      const labels = monthNames.map((month, index) => monthNames[index]);
+      setData({ labels, datasets });
+  
+      const newBackgroundColor = generateRandomHexColors(labels.length);
+      setBackgroundColor(newBackgroundColor);
     }, []);
-    
+  
     return {
-        labels: movieData.labels,
-        datasets: [
-            {
-                data: movieData.data,
-                backgroundColor: backgroundColor,
-            },
-        ],
+      labels: data.labels,
+      datasets: data.datasets,
     };
-}
+  }
+  
 
 
 export function premiereChartOptions() {
