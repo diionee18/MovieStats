@@ -10,9 +10,10 @@
     padding: 2em;
     overflow-y: scroll;
     height: 30vh;
-    align-content: center;
+    align-items: start;
     border: 2px solid grey;
     border-radius: 10px;
+
     -webkit-box-shadow: inset 8px 8px 24px 3px rgb(37, 111, 120);
     -moz-box-shadow: inset 8px 8px 24px 3px rgb(37, 111, 120);
     box-shadow: inset 8px 8px 24px 3px rgb(37, 111, 120);
@@ -20,13 +21,17 @@
 }
 
 .movie-ul:hover {
-    height: 70vh;
+    height: 50vh;
     box-shadow: 9px 12px 50px -58px rgb(37, 111, 120) inset;
     -webkit-box-shadow: 9px 12px 50px -58px rgb(37, 111, 120) inset;
     -moz-box-shadow: 9px 12px 50px -58px rgb(37, 111, 120) inset;
 }
 
 .movie-ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
     list-style: none;
     border: 1px solid black;
     border-radius: 10px;
@@ -34,7 +39,10 @@
     padding: 0.5em;
     font-size: 20px;
     transition: transform 0.5s ease-in-out;
+    transform-origin: left center;
 }
+
+
 .movie-ul li span {
     font-weight: bold;
     color: black;
@@ -45,8 +53,34 @@
     transition: all 0.5s ease-in-out;
     color: white;
     transform: translateX(20px);
+    animation: moveRight 2s alternate;
 }
+@keyframes moveRight {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(20px) scaleX(1.2);
+    }
+    100% {
+        transform: translateX(20px);
+    }
+}
+
 
 .movie-ul li:not(:hover) {
     transform: translateX(0);
+    animation: moveBack 2s alternate;
+}
+
+@keyframes moveBack {
+    0% {
+        transform: translateX(20);
+    }
+    50% {
+        transform: translateX(0px) scaleX(1.2);
+    }
+    100% {
+        transform: translateX(0px);
+    }
 }

@@ -42,7 +42,7 @@ const GenreChart = () => {
     };
 
     return (
-        <section ref={ref} className="genre-circle-container">
+        <section ref={ref} id="GenreChart" className="genre-circle-container">
         <motion.div className="genre-circle"
             variants={{
                 hidden: { opacity: 0, x: 255},

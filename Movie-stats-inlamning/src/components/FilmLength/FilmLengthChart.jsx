@@ -38,7 +38,7 @@ const FilmLengthChart = () => {
     }, [isInView]);
 
     return (
-        <div className="line-container" ref={ref}>
+        <div className="line-container" id="FilmLengthChart" ref={ref}>
             <motion.div
                 className="line-wrapper"
                 variants={{

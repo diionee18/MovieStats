@@ -30,7 +30,7 @@ const PrimiereChart = () => {
     }, [isInView]);
 
     return (
-        <div className="bar-container" ref={ref}>
+        <div className="bar-container" id="PrimiereChart" ref={ref}>
             <motion.div
                 className="bar-motion-container"
                 variants={{

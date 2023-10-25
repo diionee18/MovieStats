@@ -42,7 +42,7 @@ const LanguageChart = () => {
 
     return (
         
-        <section ref={ref} className="circle-container">
+        <section ref={ref} id="LanguageChart" className="circle-container">
         <motion.div className="motion-div-circle"
             variants={{
                 hidden: { opacity: 0, y: 255},

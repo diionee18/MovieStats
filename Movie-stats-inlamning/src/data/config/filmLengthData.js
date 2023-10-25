@@ -14,16 +14,6 @@ export function filmLengthChart() {
         // Konvertera längden från text till minuter
         const filmLengthsInMinutes = combinedAllMovies.map((movie) => {
             const runtime = movie.Runtime;
-            // Extrahera timmar och minuter från längden (t.ex., "2 h 10 min")
-            // const matches = runtime.match(/\d+/g);
-            // let result 
-            // if(matches.length === 1  ) result= Number(matches[0])
-            // else result = Number(matches[0]) * 60 + Number(matches[1]);
-            //  if (result === 2){
-            //     console.log("Resultat:",result, movie, matches);
-            //  }
-            // return result
-
             return calculateLength(runtime)
         });
     
@@ -115,15 +105,7 @@ export function filmLengthChartOptions() {
             },
         },
         scales: {
-            x: {
-                title: {
-                    display: true,
-                    text: 'Antal Filmer',
-                    font:{
-                        size: 25
-                    }
-                },
-            },
+
             y: {
                 title: {
                     display: true,
